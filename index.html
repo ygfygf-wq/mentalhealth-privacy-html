@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>プライバシーポリシー — 心と体の記録</title>
+  <meta name="description" content="心と体の記録アプリのプライバシーポリシーです。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --lav-1: #c4b8e8;
+      --lav-2: #9b8ec8;
+      --lav-3: #7b6fb0;
+      --lav-dark: #4a3f7a;
+      --bg: #f8f6fd;
+      --surface: #ffffff;
+      --text: #2a2040;
+      --sub: #7a7290;
+      --border: #e6e0f4;
+      --green: #4e9e87;
+      --blue: #5588cc;
+      --orange: #d47c3a;
+      --rose: #b85c7a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #b3a8d8 0%, #8e82c0 55%, #6b5fa8 100%);
+      padding: 72px 24px 96px;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 20%, rgba(255,255,255,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+    }
+
+    /* floating dots decoration */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: 0.5;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-emoji {
+      font-size: 64px;
+      display: block;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 16px rgba(60,40,100,0.25);
+      margin-bottom: 10px;
+    }
+
+    .hero-app {
+      font-size: 15px;
+      color: rgba(255,255,255,0.80);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── LANG TOGGLE ─── */
+    .lang-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .lang-btn {
+      padding: 7px 22px;
+      border-radius: 24px;
+      border: 2px solid rgba(255,255,255,0.5);
+      background: transparent;
+      color: rgba(255,255,255,0.9);
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: #fff;
+      color: #fff;
+    }
+
+    /* ─── WAVE ─── */
+    .wave {
+      display: block;
+      margin-top: -2px;
+      background: var(--bg);
+    }
+
+    /* ─── MAIN LAYOUT ─── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* ─── META BAR ─── */
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 20px;
+      margin: -28px 0 32px;
+      box-shadow: 0 4px 20px rgba(100,80,160,0.08);
+      font-size: 13px;
+      color: var(--sub);
+      position: relative;
+      z-index: 2;
+    }
+
+    .meta-bar strong {
+      color: var(--lav-3);
+      font-weight: 700;
+    }
+
+    /* ─── SECTION ─── */
+    .section {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 16px rgba(100,80,160,0.07);
+      border: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section:nth-child(1) { animation-delay: 0.05s; }
+    .section:nth-child(2) { animation-delay: 0.12s; }
+    .section:nth-child(3) { animation-delay: 0.19s; }
+    .section:nth-child(4) { animation-delay: 0.26s; }
+    .section:nth-child(5) { animation-delay: 0.33s; }
+    .section:nth-child(6) { animation-delay: 0.40s; }
+
+    @media (max-width: 540px) {
+      .section { padding: 22px 18px; }
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .sec-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .sec-header h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── BODY TEXT ─── */
+    .sec-body {
+      font-size: 14.5px;
+      color: #4a4468;
+      line-height: 1.9;
+    }
+
+    .sec-body p { margin-bottom: 10px; }
+    .sec-body p:last-child { margin-bottom: 0; }
+
+    .sec-body ul {
+      padding-left: 0;
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .sec-body ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .sec-body ul li::before {
+      content: '▸';
+      color: var(--lav-2);
+      font-size: 12px;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ─── HIGHLIGHT BOX ─── */
+    .highlight {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: linear-gradient(135deg, rgba(179,168,216,0.12), rgba(142,130,192,0.07));
+      border: 1.5px solid var(--border);
+      border-left: 4px solid var(--lav-2);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 16px;
+    }
+
+    .highlight-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+
+    .highlight p {
+      font-size: 13.5px;
+      color: var(--sub);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .highlight strong { color: var(--lav-3); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 40px 20px 48px;
+      font-size: 13px;
+      color: var(--sub);
+    }
+
+    footer .footer-logo {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: var(--lav-3);
+      text-decoration: none;
+      border-bottom: 1px solid var(--lav-1);
+      transition: border-color 0.2s;
+    }
+
+    footer a:hover { border-color: var(--lav-3); }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-emoji">📔</span>
+      <h1 id="hero-title">プライバシーポリシー</h1>
+      <p class="hero-app">心と体の記録 — Mental Health Tracker</p>
+      <div class="lang-bar">
+        <button class="lang-btn active" onclick="setLang('ja')" id="btn-ja">日本語</button>
+        <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+      </div>
+    </div>
+  </header>
+
+  <svg class="wave" viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="48">
+    <path d="M0,32 C360,0 1080,64 1440,24 L1440,48 L0,48 Z" fill="#f8f6fd"/>
+  </svg>
+
+  <main>
+    <!-- Meta bar -->
+    <div class="meta-bar">
+      <span id="label-updated">最終更新日</span>
+      <strong>2026/02/17</strong>
+    </div>
+
+    <!-- Sections rendered by JS -->
+    <div id="policy-content"></div>
+  </main>
+
+  <footer>
+    <span class="footer-logo">📔</span>
+    <p id="footer-text">心と体の記録 — Mental Health Tracker</p>
+    <p style="margin-top:6px;">
+      <span id="footer-contact-label">ご不明な点は</span>
+      <a href="https://YOUR_GOOGLE_FORM_URL" id="footer-contact-link">お問い合わせ</a>
+      <span id="footer-contact-suffix">よりお気軽にご連絡ください。</span>
+    </p>
+  </footer>
+
+  <script>
+    const sections = {
+      ja: [
+        {
+          icon: "📋",
+          color: "linear-gradient(135deg,#b3a8d8,#8e82c0)",
+          title: "はじめに",
+          content: `<p>本プライバシーポリシーは、「心と体の記録」アプリ（以下「本アプリ」）における個人情報・データの取り扱いについて説明するものです。</p>
+          <p>本アプリをご利用いただくことで、本ポリシーへ同意いただいたものとみなします。</p>`
+        },
+        {
+          icon: "📱",
+          color: "linear-gradient(135deg,#6aacdd,#4488bb)",
+          title: "記録・保存するデータ",
+          content: `<p>本アプリが端末内に保存するデータは以下の通りです。</p>
+          <ul>
+            <li>気分の記録（1〜10の数値）</li>
+            <li>睡眠時間（0〜24時間）および睡眠の質</li>
+            <li>任意で入力したメモ・テキスト</li>
+            <li>記録日時</li>
+          </ul>
+          <div class="highlight">
+            <span class="highlight-icon">🔒</span>
+            <p><strong>これらのデータはすべてお使いの端末内にのみ保存されます。</strong><br>外部サーバーへの送信、クラウドへのアップロード、第三者への提供は一切行いません。</p>
+          </div>`
+        },
+        {
+          icon: "🔒",
+          color: "linear-gradient(135deg,#5fba9e,#3d9a80)",
+          title: "データの保存場所と管理",
+          content: `<p>すべての記録データはお使いのiOSデバイスのローカルストレージ（UserDefaults）に保存されます。</p>
+          <p>アプリを削除すると、保存されたすべてのデータも削除されます。データのバックアップや移行機能は現在提供しておりません。</p>`
+        },
+        {
+          icon: "🚫",
+          color: "linear-gradient(135deg,#b06abf,#8e4aa0)",
+          title: "広告・トラッキング",
+          content: `<p>現在、本アプリには広告の掲載および行動トラッキングの仕組みは一切ありません。</p>
+          <p>ユーザーの行動データを収集・分析・販売することはありません。</p>`
+        },
+        {
+          icon: "🔄",
+          color: "linear-gradient(135deg,#e0924a,#c47030)",
+          title: "ポリシーの変更について",
+          content: `<p>機能追加や法令への対応のため、本ポリシーを改定する場合があります。</p>
+          <p>改定後は本ページおよびアプリ内にてお知らせします。改定後も引き続き本アプリをご利用いただいた場合、改定後のポリシーへの同意とみなします。</p>
+          <div class="highlight">
+            <span class="highlight-icon">ℹ️</span>
+            <p>将来的な機能追加に伴い、収集するデータの種類が変わる可能性があります。その際は本ポリシーを更新してお知らせします。</p>
+          </div>`
+        },
+        {
+          icon: "✉️",
+          color: "linear-gradient(135deg,#8e82c0,#6b5fa8)",
+          title: "お問い合わせ",
+          content: `<p>本プライバシーポリシーに関するご質問・ご不明な点は、アプリ内設定画面の「お問い合わせ」フォームよりお気軽にご連絡ください。</p>`
+        }
+      ],
+      en: [
+        {
+          icon: "📋",
+          color: "linear-gradient(135deg,#b3a8d8,#8e82c0)",
+          title: "Introduction",
+          content: `<p>This Privacy Policy explains how the "Mental Health Tracker" app (the "App") handles your personal data.</p>
+          <p>By using the App, you agree to this policy.</p>`
+        },
+        {
+          icon: "📱",
+          color: "linear-gradient(135deg,#6aacdd,#4488bb)",
+          title: "Data We Store",
+          content: `<p>The App saves the following data locally on your device:</p>
+          <ul>
+            <li>Mood score (1–10)</li>
+            <li>Sleep hours (0–24) and sleep quality</li>
+            <li>Optional notes and text entries</li>
+            <li>Date and time of each record</li>
+          </ul>
+          <div class="highlight">
+            <span class="highlight-icon">🔒</span>
+            <p><strong>All data is stored only on your device.</strong><br>We do not transmit data to external servers, upload to the cloud, or share it with any third parties.</p>
+          </div>`
+        },
+        {
+          icon: "🔒",
+          color: "linear-gradient(135deg,#5fba9e,#3d9a80)",
+          title: "Storage & Data Management",
+          content: `<p>All records are saved to your iOS device's local storage (UserDefaults).</p>
+          <p>Deleting the App will permanently remove all stored data. Backup or data migration features are not currently available.</p>`
+        },
+        {
+          icon: "🚫",
+          color: "linear-gradient(135deg,#b06abf,#8e4aa0)",
+          title: "Ads & Tracking",
+          content: `<p>This App contains no advertisements and no behavioral tracking mechanisms of any kind.</p>
+          <p>We do not collect, analyze, or sell user behavior data.</p>`
+        },
+        {
+          icon: "🔄",
+          color: "linear-gradient(135deg,#e0924a,#c47030)",
+          title: "Policy Updates",
+          content: `<p>We may update this policy as new features are added or to comply with applicable laws.</p>
+          <p>Updates will be announced on this page and within the App. Continued use of the App after changes constitutes acceptance of the revised policy.</p>
+          <div class="highlight">
+            <span class="highlight-icon">ℹ️</span>
+            <p>As new features are introduced, the types of data collected may change. This policy will be updated accordingly.</p>
+          </div>`
+        },
+        {
+          icon: "✉️",
+          color: "linear-gradient(135deg,#8e82c0,#6b5fa8)",
+          title: "Contact",
+          content: `<p>For questions about this Privacy Policy, please use the Contact form in the App's Settings screen.</p>`
+        }
+      ]
+    };
+
+    const ui = {
+      ja: {
+        heroTitle: "プライバシーポリシー",
+        labelUpdated: "最終更新日",
+        footerText: "心と体の記録 — Mental Health Tracker",
+        footerContactLabel: "ご不明な点は",
+        footerContactLink: "お問い合わせ",
+        footerContactSuffix: "よりお気軽にご連絡ください。"
+      },
+      en: {
+        heroTitle: "Privacy Policy",
+        labelUpdated: "Last updated",
+        footerText: "Mental Health Tracker",
+        footerContactLabel: "Questions? ",
+        footerContactLink: "Contact us",
+        footerContactSuffix: " via the in-app form."
+      }
+    };
+
+    let currentLang = 'ja';
+
+    function render() {
+      const t = ui[currentLang];
+      document.getElementById('hero-title').textContent = t.heroTitle;
+      document.getElementById('label-updated').textContent = t.labelUpdated;
+      document.getElementById('footer-text').textContent = t.footerText;
+      document.getElementById('footer-contact-label').textContent = t.footerContactLabel;
+      document.getElementById('footer-contact-link').textContent = t.footerContactLink;
+      document.getElementById('footer-contact-suffix').textContent = t.footerContactSuffix;
+      document.getElementById('btn-ja').classList.toggle('active', currentLang === 'ja');
+      document.getElementById('btn-en').classList.toggle('active', currentLang === 'en');
+      document.documentElement.lang = currentLang;
+
+      const container = document.getElementById('policy-content');
+      container.innerHTML = '';
+      sections[currentLang].forEach((sec, i) => {
+        const el = document.createElement('div');
+        el.className = 'section';
+        el.style.animationDelay = `${0.05 + i * 0.07}s`;
+        el.innerHTML = `
+          <div class="sec-header">
+            <div class="sec-icon" style="background:${sec.color}">${sec.icon}</div>
+            <h2>${sec.title}</h2>
+          </div>
+          <div class="sec-body">${sec.content}</div>`;
+        container.appendChild(el);
+      });
+    }
+
+    function setLang(lang) {
+      currentLang = lang;
+      render();
+    }
+
+    render();
+  </script>
+</body>
+</html>
