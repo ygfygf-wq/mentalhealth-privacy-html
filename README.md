@@ -1,2 +1,1 @@
-# mentalhealth-privacy-html
-mentalhealth-privacy-html
+# This is a developer website.
